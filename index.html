@@ -7,30 +7,39 @@
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin=""/>
   <link href='https://api.mapbox.com/mapbox-gl-js/v0.46.0/mapbox-gl.css' rel='stylesheet' />
+  <!-- Mapbox script tags -->
+  <script src='https://api.mapbox.com/mapbox-gl-js/v0.46.0/mapbox-gl.js'></script>
+  <!-- Adding SW file-->
+  <script type="application/javascript" charset="utf-8" src="js/sw.js"></script>
   <title>Restaurant Reviews</title>
 </head>
 
 <body>
   <header>
     <nav>
-      <h1><a href="/">Restaurant Reviews</a></h1>
+      <h1>
+        <a id="title-link" href="/">Restaurant Reviews</a>
+      </h1>
     </nav>
   </header>
 
   <main id="maincontent">
-    <section id="map-container">
+    <section id="map-container" aria-labelledby="map-aria-description" role="application">
       <div id="map"></div>
     </section>
+    <label id="map-aria-description" class="map-aria-description">Mapbox application</label>
     <section>
       <div class="filter-options">
         <h2>Filter Results</h2>
         <div class="filter-selects">
-          <select id="neighborhoods-select" name="neighborhoods" onchange=" updateR  estaurants()">  
+          <select id="neighborhoods-select" name="neighborhoods" onchange=" updateRestaurants()" aria-labelledby="neighborhoods-label">  
             <option  value="all">All Neighborhoods</option>  
           </select> 
-          <select id="cuisines-select" name="cuisines" onchange="updateRestaurants  ()">
+          <label id="neighborhoods-label" class="filter-label">filter by neighborhoods</label>
+          <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()" aria-labelledby="cuisines-label">
             <option value="all">All Cuisines</option>
           </select>
+          <label id="cuisines-label" class="filter-label">filter bu cuisines</label>
         </div>
       </div>
       <ul id="restaurants-list"></ul>
