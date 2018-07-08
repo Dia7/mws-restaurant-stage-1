@@ -216,17 +216,3 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     self.markers.push(marker);
   });
 } */
-
-
-
-// ------------------------------------
-// from mapbox
-
-
-var mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
-
-mapboxgl.accessToken = 'pk.eyJ1IjoiZGlhNyIsImEiOiJjamo4aDIyeW0wNTRlM3ZzNzg0bjJ0d3QyIn0.t31eY45_i4Zp_YUEAkqI_g';
-var map = new mapboxgl.Map({
-  container: 'map-container',
-  style: 'mapbox://styles/mapbox/streets-v10'
-});
